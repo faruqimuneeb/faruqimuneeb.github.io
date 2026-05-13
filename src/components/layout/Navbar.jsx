@@ -34,59 +34,56 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-[#080808]/90 backdrop-blur-xl border-b border-white/[0.06] py-3'
-            : 'bg-transparent py-5'
+          scrolled ? 'bg-[#080808]/90 backdrop-blur-xl border-b border-white/[0.06] py-3' : 'bg-transparent py-5'
         }`}
+        role="banner"
       >
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
           <a
             href="#"
             className="flex items-center gap-2 group"
+            aria-label="Muneeb Faruqi — Back to top"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           >
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center group-hover:bg-blue-500 transition-colors" aria-hidden="true">
               <Code2 size={14} className="text-white" />
             </div>
-            <span
-              className="text-white font-semibold text-sm tracking-tight"
-              style={{ fontFamily: 'Syne, sans-serif' }}
-            >
+            <span className="text-white font-semibold text-sm tracking-tight" style={{ fontFamily: 'Syne, sans-serif' }}>
               Muneeb<span className="text-blue-400">.</span>dev
             </span>
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1" aria-label="Primary navigation">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNav(link.href)}
-                className="px-3.5 py-1.5 text-sm text-slate-400 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200 font-medium"
+                className="px-3.5 py-1.5 text-sm text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200 font-medium"
+                aria-label={`Navigate to ${link.label} section`}
               >
                 {link.label}
               </button>
             ))}
           </nav>
 
-          {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="mailto:muneebfaruqi@email.com"
-              className="text-xs font-mono text-slate-500 hover:text-blue-400 transition-colors"
-            >
+            <a href="mailto:muneebfaruqi@email.com" className="text-xs font-mono text-slate-400 hover:text-blue-400 transition-colors">
               available for hire
             </a>
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile Hamburger — ACCESSIBILITY FIX: aria-label + aria-expanded */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-slate-400 hover:text-white transition-colors"
+            className="md:hidden p-2 text-slate-300 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
           </button>
         </div>
       </motion.header>
@@ -95,6 +92,9 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -112,8 +112,8 @@ export default function Navbar() {
                 </button>
               ))}
               <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center gap-2 px-4">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-xs text-slate-500 font-mono">available for hire</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+                <span className="text-xs text-slate-400 font-mono">available for hire</span>
               </div>
             </nav>
           </motion.div>

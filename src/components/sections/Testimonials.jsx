@@ -8,9 +8,9 @@ export default function Testimonials() {
   const [ref, inView] = useInView();
 
   return (
-    <section id="testimonials" className="relative py-28">
+    <section id="testimonials" className="relative py-16 sm:py-24">
       <div className="absolute inset-0 bg-[#050505]" />
-      <div className="relative z-10 max-w-6xl mx-auto px-6" ref={ref}>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -24,7 +24,7 @@ export default function Testimonials() {
           />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.id}
@@ -44,7 +44,7 @@ export default function Testimonials() {
                   <p className="text-white text-sm font-semibold" style={{ fontFamily: 'Syne, sans-serif' }}>
                     {t.name}
                   </p>
-                  <p className="text-slate-600 text-xs font-mono">{t.company}</p>
+                  <p className="text-slate-400 text-xs font-mono">{t.company}</p>
                 </div>
               </div>
             </motion.div>
@@ -55,7 +55,7 @@ export default function Testimonials() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.5 }}
-          className="text-center text-slate-700 text-xs font-mono mt-8"
+          className="text-center text-slate-500 text-xs font-mono mt-8"
         >
           * Names anonymized per professional courtesy. Full references available on request.
         </motion.p>

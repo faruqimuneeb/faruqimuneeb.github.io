@@ -1,16 +1,23 @@
+import { Suspense, lazy } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Expertise from './components/sections/Expertise';
-import Projects from './components/sections/Projects';
-import Architecture from './components/sections/Architecture';
-import Timeline from './components/sections/Timeline';
-import Telephony from './components/sections/Telephony';
-import GitHub from './components/sections/GitHub';
-import Testimonials from './components/sections/Testimonials';
-import FAQ from './components/sections/FAQ';
-import Contact from './components/sections/Contact';
+
+// PERFORMANCE: lazy-load all below-fold sections
+// Hero loads eagerly (above fold), everything else deferred
+const About        = lazy(() => import('./components/sections/About'));
+const Expertise    = lazy(() => import('./components/sections/Expertise'));
+const Projects     = lazy(() => import('./components/sections/Projects'));
+const Architecture = lazy(() => import('./components/sections/Architecture'));
+const Timeline     = lazy(() => import('./components/sections/Timeline'));
+const Telephony    = lazy(() => import('./components/sections/Telephony'));
+const GitHub       = lazy(() => import('./components/sections/GitHub'));
+const Testimonials = lazy(() => import('./components/sections/Testimonials'));
+const FAQ          = lazy(() => import('./components/sections/FAQ'));
+const Contact      = lazy(() => import('./components/sections/Contact'));
+
+// Minimal fallback — invisible, no layout shift
+const SectionFallback = () => <div className="h-32" aria-hidden="true" />;
 
 export default function App() {
   return (
@@ -18,16 +25,18 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Expertise />
-        <Projects />
-        <Architecture />
-        <Timeline />
-        <Telephony />
-        <GitHub />
-        <Testimonials />
-        <FAQ />
-        <Contact />
+        <Suspense fallback={<SectionFallback />}>
+          <About />
+          <Expertise />
+          <Projects />
+          <Architecture />
+          <Timeline />
+          <Telephony />
+          <GitHub />
+          <Testimonials />
+          <FAQ />
+          <Contact />
+        </Suspense>
       </main>
       <Footer />
     </div>

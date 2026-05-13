@@ -141,7 +141,7 @@ export function StatBox({ value, label }) {
       >
         {value}
       </span>
-      <span className="text-slate-500 text-xs mt-1 text-center font-mono">{label}</span>
+      <span className="text-slate-400 text-xs mt-1 text-center font-mono">{label}</span>
     </motion.div>
   );
 }

@@ -10,11 +10,11 @@ export default function Timeline() {
   const [expanded, setExpanded] = useState(0);
 
   return (
-    <section id="experience" className="relative py-28 overflow-hidden">
+    <section id="experience" className="relative py-16 sm:py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[#050505]" />
       <GradientOrb className="w-[500px] h-[500px] top-1/2 right-0 opacity-40" color="blue" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6" ref={ref}>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -41,7 +41,7 @@ export default function Timeline() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="md:pl-12 relative"
+                className="pl-0 md:pl-12 relative"
               >
                 {/* Timeline dot */}
                 <div
@@ -87,15 +87,15 @@ export default function Timeline() {
                         <p className="text-slate-400 font-medium">{job.company}</p>
 
                         <div className="flex flex-wrap items-center gap-4 mt-2">
-                          <span className="flex items-center gap-1.5 text-slate-600 text-xs font-mono">
+                          <span className="flex items-center gap-1.5 text-slate-400 text-xs font-mono">
                             <Calendar size={11} />
                             {job.period}
                           </span>
-                          <span className="flex items-center gap-1.5 text-slate-600 text-xs font-mono">
+                          <span className="flex items-center gap-1.5 text-slate-400 text-xs font-mono">
                             <MapPin size={11} />
                             {job.location}
                           </span>
-                          <span className="flex items-center gap-1.5 text-slate-600 text-xs font-mono">
+                          <span className="flex items-center gap-1.5 text-slate-400 text-xs font-mono">
                             <Briefcase size={11} />
                             {job.type}
                           </span>
@@ -103,11 +103,11 @@ export default function Timeline() {
                       </div>
 
                       <div className="flex flex-col items-end gap-2 shrink-0">
-                        <span className="text-slate-600 text-xs font-mono">{job.duration}</span>
+                        <span className="text-slate-400 text-xs font-mono">{job.duration}</span>
                         <motion.div
                           animate={{ rotate: expanded === i ? 180 : 0 }}
                           transition={{ duration: 0.2 }}
-                          className="text-slate-600 text-xs"
+                          className="text-slate-400 text-xs"
                         >
                           ▼
                         </motion.div>

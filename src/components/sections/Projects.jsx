@@ -42,7 +42,7 @@ function ProjectCard({ project, index, inView }) {
             >
               {project.title}
             </h3>
-            <p className="text-slate-600 text-sm font-mono mt-0.5">{project.company}</p>
+            <p className="text-slate-400 text-sm font-mono mt-0.5">{project.company}</p>
           </div>
 
           <div
@@ -78,7 +78,7 @@ function ProjectCard({ project, index, inView }) {
               >
                 {metric.value}
               </div>
-              <div className="text-slate-600 text-[10px] font-mono mt-0.5">{metric.label}</div>
+              <div className="text-slate-400 text-[10px] font-mono mt-0.5">{metric.label}</div>
             </div>
           ))}
         </div>
@@ -103,8 +103,8 @@ export default function Projects() {
   const [ref, inView] = useInView();
 
   return (
-    <section id="projects" className="relative py-28">
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
+    <section id="projects" className="relative py-16 sm:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -117,7 +117,7 @@ export default function Projects() {
           />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {projects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} inView={inView} />
           ))}

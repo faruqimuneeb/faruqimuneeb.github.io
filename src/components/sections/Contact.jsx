@@ -44,11 +44,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-28 overflow-hidden">
+    <section id="contact" className="relative py-16 sm:py-24 overflow-hidden">
       <GradientOrb className="w-[600px] h-[600px] bottom-0 right-0 opacity-40" color="blue" />
       <GradientOrb className="w-[400px] h-[400px] top-0 left-0 opacity-30" color="cyan" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6" ref={ref}>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
         {/* Top banner */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -78,7 +78,7 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
           {/* Left: Contact form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -109,7 +109,7 @@ export default function Contact() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono text-slate-500 mb-1.5">Name</label>
                       <input
@@ -202,7 +202,7 @@ export default function Contact() {
                     <p className="text-white text-sm font-medium group-hover:text-blue-100 transition-colors">
                       {method.value}
                     </p>
-                    <p className="text-slate-600 text-xs mt-1">{method.desc}</p>
+                    <p className="text-slate-400 text-xs mt-1">{method.desc}</p>
                   </div>
                   <ArrowRight
                     size={14}

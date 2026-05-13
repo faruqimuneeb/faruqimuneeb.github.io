@@ -7,12 +7,12 @@ export default function Architecture() {
   const [ref, inView] = useInView();
 
   return (
-    <section id="architecture" className="relative py-28 overflow-hidden">
+    <section id="architecture" className="relative py-16 sm:py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[#050505]" />
       <GradientOrb className="w-[500px] h-[500px] bottom-0 left-0" color="purple" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6" ref={ref}>
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
           {/* Left header */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

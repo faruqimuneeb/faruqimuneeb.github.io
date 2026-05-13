@@ -16,8 +16,8 @@ export default function Telephony() {
   const [ref, inView] = useInView();
 
   return (
-    <section id="telephony" className="relative py-28">
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
+    <section id="telephony" className="relative py-28 overflow-x-clip">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,7 @@ export default function Telephony() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl" />
 
-          <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+          <div className="relative z-10 grid gap-8 md:grid-cols-2 items-center">
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-2xl">📞</span>
@@ -81,7 +81,7 @@ export default function Telephony() {
                   >
                     {stat.value}
                   </div>
-                  <div className="text-slate-600 text-xs font-mono mt-1">{stat.label}</div>
+                  <div className="text-slate-400 text-xs font-mono mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -89,7 +89,7 @@ export default function Telephony() {
         </motion.div>
 
         {/* Capability cards */}
-        <div className="grid md:grid-cols-2 gap-5 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           {telephonyCapabilities.map((cap, i) => (
             <motion.div
               key={cap.title}
@@ -138,7 +138,7 @@ export default function Telephony() {
               Telephony Stack Reference
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 divide-x divide-y divide-white/[0.04]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-x divide-y divide-white/[0.04]">
             {telephonyStack.map((item, i) => (
               <motion.div
                 key={item.name}
@@ -148,7 +148,7 @@ export default function Telephony() {
                 className="p-4 hover:bg-white/[0.02] transition-colors"
               >
                 <p className="text-white text-sm font-mono font-medium mb-1">{item.name}</p>
-                <p className="text-slate-600 text-xs">{item.desc}</p>
+                <p className="text-slate-400 text-xs">{item.desc}</p>
               </motion.div>
             ))}
           </div>

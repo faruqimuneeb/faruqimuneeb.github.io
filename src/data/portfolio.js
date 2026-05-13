@@ -55,7 +55,7 @@ export const experience = [
       'Lead backend performance engineering — query optimization, Redis caching strategy, and connection pooling reducing p95 latency by 40%',
       'Drive architecture decisions for new fintech feature domains: scheduled payments, beneficiary management, and transaction reporting dashboards',
     ],
-    skills: ['Laravel 11', 'PHP 8.3', 'MySQL', 'Redis', 'AWS', 'REST APIs', 'Docker', 'Git'],
+    skills: ['Laravel', 'PHP', 'MySQL', 'Redis', 'AWS', 'REST APIs', 'Docker', 'Git'],
   },
   {
     id: 2,
@@ -134,8 +134,8 @@ export const experience = [
 // ─── SKILLS ───────────────────────────────────────────────────────────────────
 export const skills = {
   backend: [
-    { name: 'PHP 8.x', level: 97 },
-    { name: 'Laravel 11', level: 96 },
+    { name: 'PHP', level: 97 },
+    { name: 'Laravel', level: 96 },
     { name: 'CodeIgniter', level: 85 },
     { name: 'RESTful API Design', level: 95 },
     { name: 'PHPUnit / TDD', level: 82 },
@@ -180,8 +180,8 @@ export const skills = {
 
 // ─── TECH STACK ───────────────────────────────────────────────────────────────
 export const techStack = [
-  { name: 'PHP 8.x', category: 'Backend', icon: '🐘', color: '#7a86c8' },
-  { name: 'Laravel 11', category: 'Framework', icon: '🔴', color: '#ff2d20' },
+  { name: 'PHP', category: 'Backend', icon: '🐘', color: '#7a86c8' },
+  { name: 'Laravel', category: 'Framework', icon: '🔴', color: '#ff2d20' },
   { name: 'MySQL', category: 'Database', icon: '🐬', color: '#00758f' },
   { name: 'Redis', category: 'Cache', icon: '⚡', color: '#dc382d' },
   { name: 'VICIdial', category: 'Telephony', icon: '📞', color: '#10b981' },
@@ -204,7 +204,7 @@ export const projects = [
     description:
       'Laravel fintech backend for a global remittance platform operating across 100+ countries with 350,000+ agent locations. Architected for high-volume, real-time payment processing with multi-currency support, KYC compliance, and PCI-compliant payment gateway integration.',
     impact: 'Powers millions in daily remittance volume across 4 continents with 99.95% API uptime',
-    tags: ['Laravel 11', 'PHP 8.3', 'MySQL', 'Redis', 'AWS', 'Payment Gateway API', 'KYC Integration'],
+    tags: ['Laravel', 'PHP', 'MySQL', 'Redis', 'AWS', 'Payment Gateway API', 'KYC Integration'],
     category: 'Fintech',
     color: '#3b82f6',
     metrics: [
@@ -255,7 +255,7 @@ export const projects = [
     description:
       'Fault-tolerant integration layer connecting the remittance platform with KYC providers, sanction screening APIs, and banking partners. Built with Laravel circuit breakers, idempotency keys, retry policies, dead-letter queues, and full audit trails for regulatory compliance.',
     impact: 'Zero compliance incidents since deployment; 100% audit trail coverage for regulatory review',
-    tags: ['PHP 8.3', 'Laravel', 'API Gateway', 'KYC Compliance', 'MySQL', 'Redis', 'Queues'],
+    tags: ['PHP', 'Laravel', 'API Gateway', 'KYC Compliance', 'MySQL', 'Redis', 'Queues'],
     category: 'Fintech',
     color: '#06b6d4',
     metrics: [
@@ -344,7 +344,7 @@ export const telephonyCapabilities = [
 export const testimonials = [
   {
     id: 1,
-    name: 'Development Lead',
+    name: 'Engineering Lead',
     company: 'ACE Money Transfer',
     text: 'Muneeb has been instrumental in scaling our Laravel fintech backend. His ability to identify performance bottlenecks and design clean API contracts has raised the bar for the entire engineering team.',
     avatar: 'EL',
@@ -356,13 +356,13 @@ export const testimonials = [
     text: 'The VICIdial SaaS platform Muneeb built runs our entire contact center operation. He understood Asterisk and telephony infrastructure at a depth most PHP developers never reach.',
     avatar: 'CT',
   },
-  // {
-  //   id: 3,
-  //   name: 'Project Manager',
-  //   company: 'Noveltysoft',
-  //   text: 'Muneeb consistently delivered complex GoHighLevel and CRM integrations on schedule. His code reviews pushed our junior developers to write genuinely better, more maintainable code.',
-  //   avatar: 'PM',
-  // },
+  {
+    id: 3,
+    name: 'Project Manager',
+    company: 'Noveltysoft',
+    text: 'Muneeb consistently delivered complex GoHighLevel and CRM integrations on schedule. His code reviews pushed our junior developers to write genuinely better, more maintainable code.',
+    avatar: 'PM',
+  },
 ];
 
 // ─── FAQ DATA — Drives FAQPage Schema & AI Visibility ─────────────────────────
@@ -378,10 +378,10 @@ export const faq = [
   },
   {
     q: 'Can Muneeb Faruqi customize VICIdial?',
-    a: 'Yes. 6+ years of deep VICIdial customization including multi-tenant SaaS deployment, Asterisk PBX AGI scripting, predictive dialer tuning, IVR design, and CRM API integration.',
+    a: 'Yes. 3+ years of deep VICIdial customization including multi-tenant SaaS deployment, Asterisk PBX AGI scripting, predictive dialer tuning, IVR design, and CRM API integration.',
   },
   {
     q: 'What fintech experience does Muneeb Faruqi have?',
-    a: 'Currently the Senior Laravel Backend Developer at ACE Money Transfer — architecting the payment and remittance platform for 26+ sending locations and 100+ receiving locations.',
+    a: 'Currently the Senior Laravel Backend Developer at ACE Money Transfer — architecting the payment and remittance platform for 350,000+ agent locations across 100+ countries.',
   },
 ];

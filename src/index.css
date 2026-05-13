@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
   background-color: #080808;
+  /* MOBILE FIX: prevent horizontal scroll globally */
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -16,57 +17,84 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Syne', sans-serif;
+h1, h2, h3, h4, h5, h6 { font-family: 'Syne', sans-serif; }
+
+/* PERFORMANCE: font-display swap */
+@font-face { font-family: 'Syne'; font-display: swap; }
+@font-face { font-family: 'DM Sans'; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; font-display: swap; }
+
+/* ─── HERO CSS ANIMATIONS (replaces Framer Motion for above-fold) ─── */
+/* PERFORMANCE: CSS animations have zero JS cost, don't block main thread */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes terminalIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes statsIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered hero content */
+.hero-fade-1 { opacity: 0; animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.05s forwards; }
+.hero-fade-2 { opacity: 0; animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.15s forwards; }
+.hero-fade-3 { opacity: 0; animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.25s forwards; }
+.hero-fade-4 { opacity: 0; animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.35s forwards; }
+.hero-fade-5 { opacity: 0; animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.45s forwards; }
+
+/* Terminal & stats */
+.hero-fade-right { opacity: 0; animation: fadeRight 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s forwards; }
+.terminal-line   { opacity: 0; animation: terminalIn 0.3s ease forwards; }
+.hero-stats      { opacity: 0; animation: statsIn 0.4s ease 1.5s forwards; }
+
+/* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #080808; }
 ::-webkit-scrollbar-thumb { background: #1e40af; border-radius: 2px; }
 
-.grid-pattern {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, #60a5fa 0%, #06b6d4 60%, #818cf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-white {
-  background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
+/* ─── CURSOR BLINK ─── */
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 .cursor-blink { animation: blink 1.2s ease infinite; }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-.float { animation: float 4s ease-in-out infinite; }
+/* ─── MOBILE OVERFLOW GUARD ─── */
+/* Prevent any fixed-width element from breaking layout */
+img, video, svg, canvas { max-width: 100%; }
+pre, code { max-width: 100%; overflow-x: auto; }
+table { max-width: 100%; overflow-x: auto; display: block; }
 
-@keyframes shimmer {
-  from { background-position: -200% 0; }
-  to { background-position: 200% 0; }
-}
-.shimmer {
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
-  background-size: 200% 100%;
-  animation: shimmer 3s ease infinite;
+/* ─── ACCESSIBILITY ─── */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-::selection { background: rgba(59, 130, 246, 0.3); color: #f8fafc; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-fade-1,.hero-fade-2,.hero-fade-3,.hero-fade-4,.hero-fade-5,
+  .hero-fade-right,.terminal-line,.hero-stats {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+::selection { background: rgba(59,130,246,0.3); color: #f8fafc; }

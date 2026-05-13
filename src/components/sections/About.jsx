@@ -8,7 +8,7 @@ const pillars = [
   {
     icon: Server,
     title: 'Backend Engineering',
-    description: 'PHP 8.x / Laravel 11 · RESTful APIs · MVC architecture at production scale',
+    description: 'PHP / Laravel · RESTful APIs · MVC architecture at production scale',
     color: '#3b82f6',
   },
   {
@@ -35,10 +35,10 @@ export default function About() {
   const [ref, inView] = useInView();
 
   return (
-    <section id="about" className="relative py-28 overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-24 overflow-hidden">
       <GradientOrb className="w-[500px] h-[500px] bottom-0 right-0 opacity-50" color="cyan" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6" ref={ref}>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-16 items-start">
 
           {/* Left: Text */}
@@ -80,7 +80,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-white text-sm font-medium">University of South Asia</p>
-                  <p className="text-slate-500 text-xs font-mono">
+                  <p className="text-slate-400 text-xs font-mono">
                     BS Computer Science · 2012 – 2016
                   </p>
                 </div>
@@ -94,7 +94,7 @@ export default function About() {
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-2 gap-3 mb-8"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8"
             >
               {pillars.map((p, i) => {
                 const Icon = p.icon;
@@ -116,7 +116,7 @@ export default function About() {
                     <h3 className="text-white text-sm font-semibold mb-1.5" style={{ fontFamily: 'Syne, sans-serif' }}>
                       {p.title}
                     </h3>
-                    <p className="text-slate-500 text-xs leading-relaxed">{p.description}</p>
+                    <p className="text-slate-400 text-xs leading-relaxed">{p.description}</p>
                   </motion.div>
                 );
               })}
@@ -128,7 +128,7 @@ export default function About() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.5 }}
             >
-              <p className="text-slate-600 text-xs font-mono uppercase tracking-wider mb-3">
+              <p className="text-slate-400 text-xs font-mono uppercase tracking-wider mb-3">
                 Core Technology Stack
               </p>
               <div className="flex flex-wrap gap-2">
