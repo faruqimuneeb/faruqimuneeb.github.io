@@ -220,15 +220,22 @@ export default function Contact() {
               >
                 What I'm looking for
               </p>
+
               <ul className="space-y-2">
                 {[
-                  'Senior backend or lead backend engineer roles',
-                  'Fintech or telecom platform projects',
-                  'API architecture & system design engagements',
-                  'VICIdial / Asterisk telephony contracts',
-                  'SaaS product backend development',
+                  'Senior PHP / Laravel backend engineer roles',
+                  'Remote Laravel developer or backend architect opportunities',
+                  'Fintech payment platform & API development projects',
+                  'VICIdial / Asterisk PBX telephony engineering contracts',
+                  'Multi-tenant SaaS backend development engagements',
+                  'REST API architecture & scalable system design consulting',
+                  'GoHighLevel CRM integration and automation projects',
+                  'Long-term contract or senior backend consulting roles',
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-xs text-slate-400">
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-xs text-slate-400"
+                  >
                     <span className="text-blue-500 mt-0.5 shrink-0">→</span>
                     {item}
                   </li>
