@@ -1,11 +1,8 @@
 User-agent: *
 Allow: /
 
-# Disallow crawling of unnecessary paths
-Disallow: /assets/
-Disallow: *.js
-Disallow: *.css
-Disallow: *.map
+# Allow critical assets for page rendering
+Allow: /assets/
 
 # Sitemap
 Sitemap: https://faruqimuneeb.github.io/sitemap.xml
