@@ -1,3 +1,11 @@
 User-agent: *
 Allow: /
-Sitemap: https://muneebfaruqi.dev/sitemap.xml
+
+# Disallow crawling of unnecessary paths
+Disallow: /assets/
+Disallow: *.js
+Disallow: *.css
+Disallow: *.map
+
+# Sitemap
+Sitemap: https://faruqimuneeb.github.io/sitemap.xml
