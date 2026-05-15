@@ -1,8 +1,3 @@
 User-agent: *
 Allow: /
-
-# Allow critical assets for page rendering
-Allow: /assets/
-
-# Sitemap
 Sitemap: https://faruqimuneeb.github.io/sitemap.xml
