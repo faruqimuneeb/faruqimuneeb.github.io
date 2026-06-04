@@ -1,43 +1,36 @@
-# Muneeb Faruqi — Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Production-ready developer portfolio built with React + Vite + TailwindCSS + Framer Motion.
+## Getting Started
 
-## Tech Stack
-- **React 18** + **Vite 6**
-- **TailwindCSS v4** (via @tailwindcss/vite)
-- **Framer Motion** (animations)
-- **Lucide React** (icons)
+First, run the development server:
 
-## Quick Start
 ```bash
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Build & Deploy
-```bash
-npm run build
-# dist/ folder → deploy to GitHub Pages, Netlify, or Vercel
-```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## GitHub Pages Deploy
-1. Set `base` in `vite.config.js` to your repo name: `base: '/your-repo-name/'`
-2. Run `npm run build`
-3. Push `dist/` to `gh-pages` branch
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Project Structure
-```
-src/
-  components/
-    layout/     # Navbar, Footer
-    sections/   # Hero, About, Expertise, Projects, Architecture, Timeline, Telephony, GitHub, Testimonials, Contact
-    ui/         # Reusable: Button, Badge, Card, SectionHeader, GradientOrb
-  data/         # portfolio.js — all content, projects, skills, experience
-  hooks/        # useInView (scroll animations)
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Customization
-- **Content**: Edit `src/data/portfolio.js` for all text, projects, skills, experience
-- **Colors**: CSS vars in `src/index.css`
-- **Email**: Replace `muneebfaruqi@email.com` throughout
-- **GitHub/LinkedIn**: Update URLs in `src/data/portfolio.js`
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
